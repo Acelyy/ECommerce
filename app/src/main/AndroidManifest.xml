@@ -30,7 +30,8 @@
         <activity android:name=".Activity.OrderDetailActivity" />
         <activity android:name=".Activity.DeliverDetailActivity" />
         <activity android:name=".Activity.PersonnalActivity" />
-        <activity android:name=".Activity.AgreementActivity"></activity>
+        <activity android:name=".Activity.AgreementActivity" />
+        <activity android:name=".Activity.TestActivity"></activity>
     </application>
 
 </manifest>
