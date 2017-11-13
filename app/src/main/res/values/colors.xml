@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#16adfc</color>
+    <color name="colorPrimaryDark">#16adfc</color>
+    <color name="colorAccent">#16adfc</color>
+
+
+    <color name="fragemnt_text">#a8a8a8</color>
+</resources>

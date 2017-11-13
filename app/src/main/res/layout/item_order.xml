@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="30px">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15px"
+        android:layout_marginTop="15px"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="订单编号："
+            android:textColor="#000000"
+            android:textSize="40px" />
+
+        <TextView
+            android:id="@+id/order_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="111111111111111111"
+            android:textColor="#6aaee2"
+            android:textSize="40px" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15px"
+        android:layout_marginTop="15px"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="订单状态："
+            android:textColor="#000000"
+            android:textSize="40px" />
+
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="订单已审核通过"
+            android:textColor="#5290d4"
+            android:textSize="40px" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15px"
+        android:layout_marginTop="15px"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="创建时间："
+            android:textColor="#000000"
+            android:textSize="40px" />
+
+        <TextView
+            android:id="@+id/create_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2017-11-06 09:16:03"
+            android:textColor="#5290d4"
+            android:textSize="40px" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15px"
+        android:layout_marginTop="15px"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="订单总量(吨)："
+            android:textColor="#000000"
+            android:textSize="40px" />
+
+        <TextView
+            android:id="@+id/order_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2.984"
+            android:textColor="#5290d4"
+            android:textSize="40px" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15px"
+        android:layout_marginTop="15px"
+        android:orientation="horizontal">
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="订单总额(元)："
+            android:textColor="#000000"
+            android:textSize="40px" />
+
+        <TextView
+            android:id="@+id/order_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="11130.32"
+            android:textColor="#5290d4"
+            android:textSize="40px" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15px"
+        android:layout_marginTop="15px"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="钢材总额(元)："
+            android:textColor="#000000"
+            android:textSize="40px" />
+
+        <TextView
+            android:id="@+id/sales_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="11130.32"
+            android:textColor="#5290d4"
+            android:textSize="40px" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="15px"
+            android:layout_marginTop="15px"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="运费总额(元)："
+                android:textColor="#000000"
+                android:textSize="40px" />
+
+            <TextView
+                android:id="@+id/freight_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="11130.32"
+                android:textColor="#5290d4"
+                android:textSize="40px" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="15px"
+            android:layout_marginTop="15px"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="仓储费总额(元)："
+                android:textColor="#000000"
+                android:textSize="40px" />
+
+            <TextView
+                android:id="@+id/storage_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="11130.32"
+                android:textColor="#5290d4"
+                android:textSize="40px" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="15px"
+            android:layout_marginTop="15px"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="协议量年月："
+                android:textColor="#000000"
+                android:textSize="40px" />
+
+            <TextView
+                android:id="@+id/year_month"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="201710"
+                android:textColor="#5290d4"
+                android:textSize="40px" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="15px"
+            android:layout_marginTop="15px"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="协议量旬："
+                android:textColor="#000000"
+                android:textSize="40px" />
+
+            <TextView
+                android:id="@+id/period"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="中旬"
+                android:textColor="#5290d4"
+                android:textSize="40px" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15px"
+        android:layout_marginTop="15px"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="承运方式："
+            android:textColor="#000000"
+            android:textSize="40px" />
+
+        <TextView
+            android:id="@+id/shipping_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="自提"
+            android:textColor="#5290d4"
+            android:textSize="40px" />
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

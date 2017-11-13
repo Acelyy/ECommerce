@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f0eff4"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="120px"
+        android:background="@color/colorPrimary">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="我的"
+            android:textColor="#FFFFFF"
+            android:textSize="50px" />
+
+    </RelativeLayout>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="300px"
+                android:background="#FFFFFF"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:layout_width="180px"
+                    android:layout_height="180px"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="50px">
+
+                    <ImageView
+                        android:layout_width="150px"
+                        android:layout_height="150px"
+                        android:layout_gravity="center"
+                        android:src="@mipmap/pic_mine" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/shape_mine" />
+
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="50px"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/txt_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20px"
+                        android:text="李四"
+                        android:textColor="#000000"
+                        android:textSize="50px" />
+
+                    <TextView
+                        android:id="@+id/txt_com"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="江苏永钢"
+                        android:textColor="#a9a9a9"
+                        android:textSize="45px" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="700px"
+                android:layout_marginTop="50px"
+                android:background="#FFFFFF"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txt_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20px"
+                    android:layout_marginStart="50px"
+                    android:layout_marginTop="20px"
+                    android:textColor="#000000"
+                    android:textSize="50px" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="5px"
+                    android:layout_marginStart="50px"
+                    android:background="#e2e2e2" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:padding="30px">
+
+                    <LinearLayout
+                        android:layout_width="300px"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="20px"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="今日可下单量"
+                            android:textColor="#000000"
+                            android:textSize="45px" />
+
+                        <invonate.cn.ecommerce.View.RiseNumberTextView
+                            android:id="@+id/customerrationsnum"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20px"
+                            android:text="0.00"
+                            android:layout_marginBottom="30px"
+                            android:textColor="#a9a9a9"
+                            android:textSize="45px" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="今日已下单量"
+                            android:textColor="#000000"
+                            android:textSize="45px" />
+
+                        <invonate.cn.ecommerce.View.RiseNumberTextView
+                            android:id="@+id/customerrationsnum2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20px"
+                            android:text="0.00"
+                            android:textColor="#a9a9a9"
+                            android:layout_marginBottom="30px"
+                            android:textSize="45px" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="剩余可下单量"
+                            android:textColor="#000000"
+                            android:textSize="45px" />
+
+                        <invonate.cn.ecommerce.View.RiseNumberTextView
+                            android:id="@+id/customerrationsnum3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20px"
+                            android:text="0.00"
+                            android:textColor="#a9a9a9"
+                            android:layout_marginBottom="30px"
+                            android:textSize="45px" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="5px"
+                        android:layout_height="match_parent"
+                        android:background="#e2e2e2" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="50px"
+                            android:text="账户资金余额（元）"
+                            android:textColor="#000000"
+                            android:textSize="45px" />
+
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/list_account"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="20px"
+                            android:layout_marginEnd="50px"
+                            android:layout_marginStart="50px"
+                            android:layout_marginTop="20px"
+                            android:layout_weight="1">
+
+                        </android.support.v7.widget.RecyclerView>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5px"
+                android:layout_marginTop="50px"
+                android:background="#e2e2e2" />
+
+            <LinearLayout
+                android:id="@+id/layout_account"
+                android:layout_width="match_parent"
+                android:layout_height="120px"
+                android:orientation="horizontal"
+                android:background="#FFFFFF">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="50px"
+                    android:text="客户资料"
+                    android:textColor="#000000"
+                    android:textSize="50px" />
+
+                <ImageView
+                    android:layout_width="120px"
+                    android:layout_height="120px"
+                    android:padding="30px"
+                    android:src="@mipmap/right"/>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="5px"
+                    android:layout_marginStart="50px"
+                    android:background="#e2e2e2" />
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:id="@+id/layout_xyl"
+                android:layout_width="match_parent"
+                android:layout_height="120px"
+                android:orientation="horizontal"
+                android:background="#FFFFFF">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="50px"
+                    android:text="协议量查询"
+                    android:textColor="#000000"
+                    android:textSize="50px" />
+
+                <ImageView
+                    android:layout_width="120px"
+                    android:layout_height="120px"
+                    android:padding="30px"
+                    android:src="@mipmap/right"/>
+
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/btn_exit"
+                android:layout_width="match_parent"
+                android:layout_height="120px"
+                android:layout_marginTop="50px"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:text="退出"
+                android:textColor="#000000"
+                android:textSize="50px" />
+
+        </LinearLayout>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
+</LinearLayout>
