@@ -24,6 +24,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
+import invonate.cn.ecommerce.Activity.AgreementActivity;
 import invonate.cn.ecommerce.Activity.LoginActivity;
 import invonate.cn.ecommerce.Activity.PersonnalActivity;
 import invonate.cn.ecommerce.Adapter.AccountAdapter;
@@ -140,6 +141,8 @@ public class MineFragment extends Fragment {
                 startActivity(intent);
                 break;
             case R.id.layout_xyl:
+                Intent intent_agn=new Intent(getActivity(), AgreementActivity.class);
+                startActivity(intent_agn);
                 break;
             case R.id.btn_exit:
                 AlertDialog dialog = new AlertDialog(getActivity()).builder();

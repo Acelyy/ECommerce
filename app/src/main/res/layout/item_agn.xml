@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
+    android:padding="30px">
+
+    <TextView
+        android:id="@+id/agmonth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="201711"
+        android:textColor="@color/colorPrimary"
+        android:textSize="45px" />
+
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#000000">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#FFFFFF"
+                android:gravity="right"
+                android:singleLine="true"
+                android:layout_margin="2px"
+                android:textColor="#000000"
+                android:textSize="45px" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:singleLine="true"
+                android:layout_margin="2px"
+                android:text="协议量"
+                android:textColor="#000000"
+                android:textSize="45px" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:singleLine="true"
+                android:layout_margin="2px"
+                android:text="完成量"
+                android:textColor="#000000"
+                android:textSize="45px" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:singleLine="true"
+                android:layout_margin="2px"
+                android:text="剩余量"
+                android:textColor="#000000"
+                android:textSize="45px" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="2px"
+                android:layout_weight="1"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="螺纹-上旬"
+                android:textColor="#000000"
+                android:textSize="45px" />
+
+            <TextView
+                android:id="@+id/wgtuhrb"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="2px"
+                android:layout_weight="1"
+                android:background="#FFFFFF"
+                android:gravity="right"
+                android:singleLine="true"
+                android:text="111111"
+                android:textColor="#000000"
+                android:textSize="45px" />
+
+            <TextView
+                android:id="@+id/uuhrb"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="2px"
+                android:layout_weight="1"
+                android:background="#FFFFFF"
+                android:gravity="right"
+                android:singleLine="true"
+                android:text="111111"
+                android:textColor="#000000"
+                android:textSize="45px" />
+
+            <TextView
+                android:id="@+id/uremainhrb"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="2px"
+                android:layout_weight="1"
+                android:background="#FFFFFF"
+                android:gravity="right"
+                android:singleLine="true"
+                android:text="111111"
+                android:textColor="#000000"
+                android:textSize="45px" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="2px"
+                android:layout_weight="1"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="螺纹-中旬"
+                android:textColor="#000000"
+                android:textSize="45px" />
+
+            <TextView
+                android:id="@+id/wgtdhrb"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="2px"
+                android:layout_weight="1"
+                android:background="#FFFFFF"
+                android:gravity="right"
+                android:singleLine="true"
+                android:text="111111"
+                android:textColor="#000000"
+                android:textSize="45px" />
+
+            <TextView
+                android:id="@+id/ddhrb"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="2px"
+                android:layout_weight="1"
+                android:background="#FFFFFF"
+                android:gravity="right"
+                android:singleLine="true"
+                android:text="111111"
+                android:textColor="#000000"
+                android:textSize="45px" />
+
+            <TextView
+                android:id="@+id/dremainhrb"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="2px"
+                android:layout_weight="1"
+                android:background="#FFFFFF"
+                android:gravity="right"
+                android:singleLine="true"
+                android:text="111111"
+                android:textColor="#000000"
+                android:textSize="45px" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="2px"
+                android:layout_weight="1"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="螺纹-下旬"
+                android:textColor="#000000"
+                android:textSize="45px" />
+
+            <TextView
+                android:id="@+id/wgtxhrb"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="2px"
+                android:layout_weight="1"
+                android:background="#FFFFFF"
+                android:gravity="right"
+                android:singleLine="true"
+                android:text="111111"
+                android:textColor="#000000"
+                android:textSize="45px" />
+
+            <TextView
+                android:id="@+id/xxhrb"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="2px"
+                android:layout_weight="1"
+                android:background="#FFFFFF"
+                android:gravity="right"
+                android:singleLine="true"
+                android:text="111111"
+                android:textColor="#000000"
+                android:textSize="45px" />
+
+            <TextView
+                android:id="@+id/xremainhrb"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="2px"
+                android:layout_weight="1"
+                android:background="#FFFFFF"
+                android:gravity="right"
+                android:singleLine="true"
+                android:text="111111"
+                android:textColor="#000000"
+                android:textSize="45px" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:singleLine="true"
+                android:layout_margin="2px"
+                android:text="线盘-上旬"
+                android:textColor="#000000"
+                android:textSize="45px" />
+
+            <TextView
+                android:id="@+id/wgtuswr"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="2px"
+                android:layout_weight="1"
+                android:background="#FFFFFF"
+                android:gravity="right"
+                android:singleLine="true"
+                android:text="111111"
+                android:textColor="#000000"
+                android:textSize="45px" />
+
+            <TextView
+                android:id="@+id/uuswr"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="2px"
+                android:layout_weight="1"
+                android:background="#FFFFFF"
+                android:gravity="right"
+                android:singleLine="true"
+                android:text="111111"
+                android:textColor="#000000"
+                android:textSize="45px" />
+
+            <TextView
+                android:id="@+id/uremainswr"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="2px"
+                android:layout_weight="1"
+                android:background="#FFFFFF"
+                android:gravity="right"
+                android:singleLine="true"
+                android:text="111111"
+                android:textColor="#000000"
+                android:textSize="45px" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:singleLine="true"
+                android:layout_margin="2px"
+                android:text="线盘-中旬"
+                android:textColor="#000000"
+                android:textSize="45px" />
+
+            <TextView
+                android:id="@+id/wgtdswr"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="2px"
+                android:layout_weight="1"
+                android:background="#FFFFFF"
+                android:gravity="right"
+                android:singleLine="true"
+                android:text="111111"
+                android:textColor="#000000"
+                android:textSize="45px" />
+
+            <TextView
+                android:id="@+id/ddswr"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="2px"
+                android:layout_weight="1"
+                android:background="#FFFFFF"
+                android:gravity="right"
+                android:singleLine="true"
+                android:text="111111"
+                android:textColor="#000000"
+                android:textSize="45px" />
+
+            <TextView
+                android:id="@+id/dremainswr"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="2px"
+                android:layout_weight="1"
+                android:background="#FFFFFF"
+                android:gravity="right"
+                android:singleLine="true"
+                android:text="111111"
+                android:textColor="#000000"
+                android:textSize="45px" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:singleLine="true"
+                android:layout_margin="2px"
+                android:text="线盘-下旬"
+                android:textColor="#000000"
+                android:textSize="45px" />
+
+            <TextView
+                android:id="@+id/wgtxswr"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="2px"
+                android:layout_weight="1"
+                android:background="#FFFFFF"
+                android:gravity="right"
+                android:singleLine="true"
+                android:text="111111"
+                android:textColor="#000000"
+                android:textSize="45px" />
+
+            <TextView
+                android:id="@+id/xxswr"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="2px"
+                android:layout_weight="1"
+                android:background="#FFFFFF"
+                android:gravity="right"
+                android:singleLine="true"
+                android:text="111111"
+                android:textColor="#000000"
+                android:textSize="45px" />
+
+            <TextView
+                android:id="@+id/xremainswr"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="2px"
+                android:layout_weight="1"
+                android:background="#FFFFFF"
+                android:gravity="right"
+                android:singleLine="true"
+                android:text="111111"
+                android:textColor="#000000"
+                android:textSize="45px" />
+
+        </TableRow>
+
+
+    </TableLayout>
+
+
+</LinearLayout>

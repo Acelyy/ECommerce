@@ -1,6 +1,7 @@
 package invonate.cn.ecommerce.httpUtil;
 
 
+import invonate.cn.ecommerce.Entry.Agn;
 import invonate.cn.ecommerce.Entry.Deliver;
 import invonate.cn.ecommerce.Entry.DeliverDetail;
 import invonate.cn.ecommerce.Entry.HttpResult;
@@ -56,6 +57,13 @@ public interface HttpService {
     @POST("esales/jbxx/login/loadfirstpage_customerrations_app.action")
     @FormUrlEncoded
     Observable<HttpResult<Account>> getAccount(
+            @Field("request_args") String request_args
+    );
+
+    // 获取协议量
+    @POST("esales/outbus/agreementnum/doQueryAgn_app.action")
+    @FormUrlEncoded
+    Observable<HttpResult<Agn>> getAgn(
             @Field("request_args") String request_args
     );
 

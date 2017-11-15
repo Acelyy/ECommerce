@@ -4,6 +4,7 @@ import android.util.Log;
 
 import java.util.concurrent.TimeUnit;
 
+import invonate.cn.ecommerce.Entry.Agn;
 import invonate.cn.ecommerce.Entry.Deliver;
 import invonate.cn.ecommerce.Entry.DeliverDetail;
 import invonate.cn.ecommerce.Entry.HttpResult;
@@ -157,6 +158,18 @@ public class HttpUtil {
     public void getAccount(Subscriber subscriber, String request_args) {
         Observable observable = httpService.getAccount(request_args)
                 .map(new HttpResultFunc<Account>());
+        toSubscribe(observable, subscriber);
+    }
+
+    /**
+     * 获取协议量
+     *
+     * @param subscriber
+     * @param request_args
+     */
+    public void getAgn(Subscriber subscriber, String request_args) {
+        Observable observable = httpService.getAgn(request_args)
+                .map(new HttpResultFunc<Agn>());
         toSubscribe(observable, subscriber);
     }
 }
