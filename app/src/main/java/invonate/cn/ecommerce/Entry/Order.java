@@ -72,6 +72,10 @@ public class Order {
         private double ordertotal;
         private String period;
         private double orderamount;
+        private String warehouse;
+        private String warehousenum;
+
+        private boolean is_select;
 
         public String getOrderid() {
             return orderid;
@@ -176,6 +180,35 @@ public class Order {
         public void setOrderamount(double orderamount) {
             this.orderamount = orderamount;
         }
+
+        public String getWarehouse() {
+            return warehouse;
+        }
+
+        public void setWarehouse(String warehouse) {
+            this.warehouse = warehouse;
+        }
+
+        public String getWarehousenum() {
+            return warehousenum;
+        }
+
+        public void setWarehousenum(String warehousenum) {
+            this.warehousenum = warehousenum;
+        }
+
+        public boolean is_select() {
+            return is_select;
+        }
+
+        public void setIs_select(boolean is_select) {
+            this.is_select = is_select;
+        }
+
+        @Override
+        public String toString() {
+            return this.ordernum;
+        }
     }
 
     public static class Footer {
@@ -252,6 +285,8 @@ public class Order {
         public void setStorageamount(String storageamount) {
             this.storageamount = storageamount;
         }
+
+
     }
 
     @Override

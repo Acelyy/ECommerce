@@ -31,6 +31,9 @@
         <activity android:name=".Activity.DeliverDetailActivity" />
         <activity android:name=".Activity.PersonnalActivity" />
         <activity android:name=".Activity.AgreementActivity" />
+        <activity android:name=".Activity.OfficeActivity" />
+        <activity android:name=".Activity.CreateOrderActivity" />
+        <activity android:name=".Activity.CreateDeliverActivity"></activity>
     </application>
 
 </manifest>

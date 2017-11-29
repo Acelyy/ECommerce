@@ -16,8 +16,10 @@ import android.widget.TextView;
 import com.alibaba.fastjson.JSON;
 import com.yonggang.liyangyang.ios_dialog.widget.AlertDialog;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import butterknife.BindView;
@@ -26,10 +28,13 @@ import butterknife.OnClick;
 import butterknife.Unbinder;
 import invonate.cn.ecommerce.Activity.AgreementActivity;
 import invonate.cn.ecommerce.Activity.LoginActivity;
+import invonate.cn.ecommerce.Activity.OfficeActivity;
 import invonate.cn.ecommerce.Activity.PersonnalActivity;
 import invonate.cn.ecommerce.Adapter.AccountAdapter;
+import invonate.cn.ecommerce.Entry.Filter;
 import invonate.cn.ecommerce.R;
 import invonate.cn.ecommerce.Request.Request_Account;
+import invonate.cn.ecommerce.Request.Request_Filter;
 import invonate.cn.ecommerce.Util.SPUtil;
 import invonate.cn.ecommerce.View.RiseNumberTextView;
 import invonate.cn.ecommerce.YGApplication;
@@ -118,6 +123,37 @@ public class MineFragment extends Fragment {
     }
 
     /**
+     * 获取筛选条件
+     */
+    private void getFilter() {
+        Request_Filter request = new Request_Filter(app.getUser().getCustomerid());
+        Subscriber subscriber = new Subscriber<Filter>() {
+            @Override
+            public void onCompleted() {
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                Log.i("error", e.toString());
+            }
+
+            @Override
+            public void onNext(Filter data) {
+                Log.i("getFilter", JSON.toJSONString(data));
+                Intent intent_add = new Intent(getActivity(), OfficeActivity.class);
+                Bundle bundle = new Bundle();
+                List<Filter.Rows> list_filter = data.getRows();
+                bundle.putSerializable("filter", (Serializable) list_filter);
+                intent_add.putExtras(bundle);
+                startActivity(intent_add);
+            }
+        };
+        HttpUtil.getInstance().getFilter(subscriber, JSON.toJSONString(request));
+    }
+
+
+    /**
      * 设置当前日期
      */
     private void setDate() {
@@ -133,15 +169,15 @@ public class MineFragment extends Fragment {
         unbinder.unbind();
     }
 
-    @OnClick({R.id.layout_account, R.id.layout_xyl, R.id.btn_exit})
+    @OnClick({R.id.layout_account, R.id.layout_xyl, R.id.btn_exit, R.id.add})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.layout_account:
-                Intent intent = new Intent(getActivity(), PersonnalActivity.class);
-                startActivity(intent);
+                Intent intent_person = new Intent(getActivity(), PersonnalActivity.class);
+                startActivity(intent_person);
                 break;
             case R.id.layout_xyl:
-                Intent intent_agn=new Intent(getActivity(), AgreementActivity.class);
+                Intent intent_agn = new Intent(getActivity(), AgreementActivity.class);
                 startActivity(intent_agn);
                 break;
             case R.id.btn_exit:
@@ -154,6 +190,10 @@ public class MineFragment extends Fragment {
                             }
                         }).setNegativeButton("取消", null)
                         .show();
+                break;
+            case R.id.add:
+                getFilter();
+
                 break;
         }
     }

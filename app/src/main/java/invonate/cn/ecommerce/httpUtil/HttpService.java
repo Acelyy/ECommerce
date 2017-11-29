@@ -4,9 +4,12 @@ package invonate.cn.ecommerce.httpUtil;
 import invonate.cn.ecommerce.Entry.Agn;
 import invonate.cn.ecommerce.Entry.Deliver;
 import invonate.cn.ecommerce.Entry.DeliverDetail;
+import invonate.cn.ecommerce.Entry.Distribution;
+import invonate.cn.ecommerce.Entry.Filter;
 import invonate.cn.ecommerce.Entry.HttpResult;
 import invonate.cn.ecommerce.Entry.Order;
 import invonate.cn.ecommerce.Entry.OrderDetail;
+import invonate.cn.ecommerce.Entry.OrderSearch;
 import invonate.cn.ecommerce.Entry.User;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -67,4 +70,32 @@ public interface HttpService {
             @Field("request_args") String request_args
     );
 
+    // 获取分配量筛选条件
+    @POST("esales/bus/distrib/doQueryWarehouse_app.action")
+    @FormUrlEncoded
+    Observable<HttpResult<Filter>> getFilter(
+            @Field("request_args") String request_args
+    );
+
+    // 查询分配量
+    @POST("esales/bus/distrib/doQueryCustDistrib_app.action")
+    @FormUrlEncoded
+    Observable<HttpResult<Distribution>> getDistribution(
+            @Field("request_args") String request_args
+    );
+
+
+    // 确认订单
+    @POST("esales/bus/qzorder/saveQzorder_app.action")
+    @FormUrlEncoded
+    Observable<HttpResult<String>> create_order(
+            @Field("request_args") String request_args
+    );
+
+    // 获取订单详情
+    @POST("esales/outbus/outresource/doQueryResourceDe_app.action")
+    @FormUrlEncoded
+    Observable<HttpResult<OrderSearch>> search_order(
+            @Field("request_args") String request_args
+    );
 }

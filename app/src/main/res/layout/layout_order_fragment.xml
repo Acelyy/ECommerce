@@ -19,14 +19,37 @@
             android:textColor="#FFFFFF"
             android:textSize="50px" />
 
+        <TextView
+            android:id="@+id/btn_deliver"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="#FFFFFF"
+            android:textSize="50px"
+            android:gravity="center"
+            android:layout_alignParentEnd="true"
+            android:text="开发货通知单"/>
+
     </RelativeLayout>
 
     <invonate.cn.ecommerce.View.LYYPullToRefreshListView
         android:id="@+id/list_order"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_weight="1"
         android:background="#ffffff">
 
     </invonate.cn.ecommerce.View.LYYPullToRefreshListView>
+
+    <Button
+        android:id="@+id/btn_complete"
+        android:layout_width="match_parent"
+        android:layout_height="150px"
+        android:background="@drawable/button_register_login"
+        android:text="确定"
+        android:visibility="gone"
+        android:layout_margin="20px"
+        android:textColor="#FFFFFF"
+        android:textSize="50px" />
+
 
 </LinearLayout>

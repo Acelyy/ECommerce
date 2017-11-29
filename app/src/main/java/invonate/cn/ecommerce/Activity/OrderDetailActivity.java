@@ -96,7 +96,6 @@ public class OrderDetailActivity extends BaseActivity {
         super.onResume();
         //进入界面主动刷新一次
         getOrderDetail();
-
     }
 
     /**

@@ -7,9 +7,12 @@ import java.util.concurrent.TimeUnit;
 import invonate.cn.ecommerce.Entry.Agn;
 import invonate.cn.ecommerce.Entry.Deliver;
 import invonate.cn.ecommerce.Entry.DeliverDetail;
+import invonate.cn.ecommerce.Entry.Distribution;
+import invonate.cn.ecommerce.Entry.Filter;
 import invonate.cn.ecommerce.Entry.HttpResult;
 import invonate.cn.ecommerce.Entry.Order;
 import invonate.cn.ecommerce.Entry.OrderDetail;
+import invonate.cn.ecommerce.Entry.OrderSearch;
 import invonate.cn.ecommerce.Entry.User;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
@@ -28,21 +31,21 @@ import rx.schedulers.Schedulers;
 public class HttpUtil {
 
     //public static final String BASE_URL = "http://esale.yong-gang.com/";
-    //public static final String BASE_URL = "http://192.168.202.180:8000/";
-    public static final String BASE_URL = "http://172.30.198.30:8000/";
-
-    public static int DEFAULT_TIMEOUT = 5;
-
-    private Retrofit retrofit;
+    //private static final String BASE_URL = "http://192.168.202.180:8000/";
+    private static final String BASE_URL = "http://172.20.1.17:8000/";
+    //private static final String BASE_URL = "http://192.168.2.1/";
 
     private HttpService httpService;
 
     private static HttpUtil INSTANCE = new HttpUtil();
 
     private HttpUtil() {
+
+        int DEFAULT_TIMEOUT = 8;
+
         OkHttpClient.Builder clientBuilder = new OkHttpClient.Builder()
                 .connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS);//设置超时时间
-        retrofit = new Retrofit.Builder()
+        Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .client(clientBuilder.build())
                 .addConverterFactory(FastJsonConverterFactory.create())
@@ -172,4 +175,53 @@ public class HttpUtil {
                 .map(new HttpResultFunc<Agn>());
         toSubscribe(observable, subscriber);
     }
+
+    /**
+     * 获取分配量条件
+     *
+     * @param subscriber
+     * @param request_args
+     */
+    public void getFilter(Subscriber subscriber, String request_args) {
+        Observable observable = httpService.getFilter(request_args)
+                .map(new HttpResultFunc<Filter>());
+        toSubscribe(observable, subscriber);
+    }
+
+    /**
+     * 获取分配量条件
+     *
+     * @param subscriber
+     * @param request_args
+     */
+    public void getDistribution(Subscriber subscriber, String request_args) {
+        Observable observable = httpService.getDistribution(request_args)
+                .map(new HttpResultFunc<Distribution>());
+        toSubscribe(observable, subscriber);
+    }
+
+    /**
+     * 下单
+     *
+     * @param subscriber
+     * @param request_args
+     */
+    public void create_order(Subscriber subscriber, String request_args) {
+        Observable observable = httpService.create_order(request_args)
+                .map(new HttpResultFunc<String>());
+        toSubscribe(observable, subscriber);
+    }
+
+    /**
+     * 查找订单明细
+     *
+     * @param subscriber
+     * @param request_args
+     */
+    public void search_order(Subscriber subscriber,String request_args){
+        Observable observable = httpService.search_order(request_args)
+                .map(new HttpResultFunc<OrderSearch>());
+        toSubscribe(observable,subscriber);
+    }
+
 }
