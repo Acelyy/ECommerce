@@ -29,6 +29,17 @@
             android:padding="20px"
             android:src="@mipmap/pic_back" />
 
+        <TextView
+            android:id="@+id/edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="修改"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:textColor="#FFFFFF"
+            android:layout_marginEnd="20px"
+            android:textSize="50px" />
+
     </RelativeLayout>
 
     <android.support.v4.widget.SwipeRefreshLayout
@@ -80,7 +91,6 @@
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="10px"
                             android:layout_marginStart="30px"
-                            android:text="订单编号：123456789"
                             android:textColor="#555555"
                             android:textSize="40px"/>
 
@@ -89,7 +99,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="30px"
-                            android:text="提交时间：123456789"
                             android:textColor="#555555"
                             android:textSize="40px"/>
 
@@ -178,7 +187,6 @@
                                     android:id="@+id/order_year_month"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="201710"
                                     android:textColor="#5290d4"
                                     android:textSize="40px" />
 
@@ -201,7 +209,6 @@
                                     android:id="@+id/order_period"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="中旬"
                                     android:textColor="#5290d4"
                                     android:textSize="40px" />
 
@@ -232,7 +239,6 @@
                                     android:id="@+id/order_transway"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="666666666"
                                     android:textColor="#5290d4"
                                     android:textSize="40px" />
 
@@ -263,7 +269,6 @@
                                     android:id="@+id/order_customernamecn"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="666666666"
                                     android:textColor="#5290d4"
                                     android:textSize="40px" />
 
@@ -294,7 +299,6 @@
                                     android:id="@+id/order_office"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="666666666"
                                     android:textColor="#5290d4"
                                     android:textSize="40px" />
 
@@ -325,7 +329,6 @@
                                     android:id="@+id/order_deliveport"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="666666666"
                                     android:textColor="#5290d4"
                                     android:textSize="40px" />
 
@@ -357,7 +360,6 @@
                                     android:id="@+id/order_warehouse"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="666666666"
                                     android:textColor="#5290d4"
                                     android:textSize="40px" />
 
@@ -391,7 +393,6 @@
                                     android:id="@+id/order_carnum"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="666666666"
                                     android:textColor="#5290d4"
                                     android:textSize="40px" />
 
@@ -422,7 +423,6 @@
                                     android:id="@+id/order_contacts"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="666666666"
                                     android:textColor="#5290d4"
                                     android:textSize="40px" />
 
@@ -453,7 +453,6 @@
                                     android:id="@+id/order_phonenum"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="666666666"
                                     android:textColor="#5290d4"
                                     android:textSize="40px" />
 
@@ -485,7 +484,6 @@
                                     android:id="@+id/order_deliveplace"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="666666666"
                                     android:textColor="#5290d4"
                                     android:textSize="40px" />
 
@@ -517,7 +515,6 @@
                                     android:id="@+id/order_comment"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="666666666"
                                     android:textColor="#5290d4"
                                     android:textSize="40px" />
 

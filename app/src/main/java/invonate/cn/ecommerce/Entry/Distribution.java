@@ -209,7 +209,6 @@ public class Distribution {
             if (point == null) {
                 setPoint(this.maxPoint + "");
             }
-
         }
 
         public String getOrderWgt() {

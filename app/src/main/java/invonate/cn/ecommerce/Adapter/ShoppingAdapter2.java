@@ -15,33 +15,43 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import invonate.cn.ecommerce.Entry.Distribution;
+import invonate.cn.ecommerce.Entry.OrderSearch;
 import invonate.cn.ecommerce.R;
 
 /**
- * Created by liyangyang on 2017/11/20.
+ * Created by liyangyang on 2017/11/29.
  */
 
-public class ShoppingAdapter extends RecyclerView.Adapter<ShoppingAdapter.ViewHolder> {
+public class ShoppingAdapter2 extends RecyclerView.Adapter<ShoppingAdapter2.ViewHolder> {
     public static int TYPE1 = 0; // 螺纹钢
     public static int TYPE2 = 1; // 线盘
 
-    private List<Distribution.Rows> data;
+    private List<OrderSearch.Rows> data;
     private Context context;
     private OnItemClickListener onItemClickListener;
     private OnDeleteItemClickListener onDeleteItemClickListener;
 
-    public ShoppingAdapter(List<Distribution.Rows> data, Context context) {
+    public ShoppingAdapter2(List<OrderSearch.Rows> data, Context context) {
         this.data = data;
         this.context = context;
     }
 
-    public List<Distribution.Rows> getData() {
+    public List<OrderSearch.Rows> getData() {
         return data;
     }
 
-    public void setData(List<Distribution.Rows> data) {
+    public void setData(List<OrderSearch.Rows> data) {
         this.data = data;
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        String name = data.get(position).getProducttype2();
+        if ("螺纹钢".equals(name)) {
+            return TYPE1;
+        } else {
+            return TYPE2;
+        }
     }
 
     @Override
@@ -56,30 +66,19 @@ public class ShoppingAdapter extends RecyclerView.Adapter<ShoppingAdapter.ViewHo
     }
 
     @Override
-    public int getItemViewType(int position) {
-        String name = data.get(position).getProducttype2();
-        if ("螺纹钢".equals(name)) {
-            return TYPE1;
-        } else {
-            return TYPE2;
-        }
-
-    }
-
-    @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         if (getItemViewType(position) == TYPE1) {//螺纹钢
             data.get(position).setMaxPoint();
             holder.single.setText(data.get(position).getPoint());
             holder.singleweight.setText(data.get(position).getSingleweight());
-            holder.num.setText(multiply(data.get(position).getPoint() + "", data.get(position).getSingleweight(), 3));
-            data.get(position).setOrderWgt(multiply(data.get(position).getPoint() + "", data.get(position).getSingleweight(), 3));
-            holder.sum.setText(multiply(data.get(position).getOrderWgt(), data.get(position).getPrice(), 2));
+            holder.num.setText(multiply(data.get(position).getPoint()+"", data.get(position).getSingleweight(), 3));
+            data.get(position).setOrderWgt(multiply(data.get(position).getPoint()+"", data.get(position).getSingleweight(), 3));
+            holder.sum.setText(multiply(data.get(position).getOrderWgt(),data.get(position).getPrice(),2));
         } else {// 线盘
-            if (data.get(position).getOrderWgt() == null) {
-                data.get(position).setOrderWgt(data.get(position).getSumMax());
+            if (data.get(position).getOrderWgt()==null){
+                data.get(position).setOrderWgt(data.get(position).getNum());
             }
-            holder.num.setText(format(data.get(position).getOrderWgt(), 3));
+            holder.num.setText(format(data.get(position).getOrderWgt(),3));
             holder.sum.setText(multiply(data.get(position).getPrice(), data.get(position).getOrderWgt(), 2));
         }
         holder.goodsType.setText(data.get(position).getProducttype() + "-" + data.get(position).getProducttype2());
@@ -95,7 +94,7 @@ public class ShoppingAdapter extends RecyclerView.Adapter<ShoppingAdapter.ViewHo
                 }
             });
         }
-        if (onDeleteItemClickListener != null) {
+        if (onDeleteItemClickListener!=null){
             holder.delete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -104,7 +103,6 @@ public class ShoppingAdapter extends RecyclerView.Adapter<ShoppingAdapter.ViewHo
                 }
             });
         }
-
     }
 
     @Override
@@ -139,7 +137,6 @@ public class ShoppingAdapter extends RecyclerView.Adapter<ShoppingAdapter.ViewHo
         ViewHolder(View view) {
             super(view);
             ButterKnife.bind(this, view);
-
         }
     }
 

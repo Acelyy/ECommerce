@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
+import com.yonggang.liyangyang.ios_dialog.widget.AlertDialog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +32,7 @@ import invonate.cn.ecommerce.Entry.Order;
 import invonate.cn.ecommerce.Entry.OrderSearch;
 import invonate.cn.ecommerce.R;
 import invonate.cn.ecommerce.Request.Request_Order;
+import invonate.cn.ecommerce.Request.Request_cDeliver;
 import invonate.cn.ecommerce.View.LYYPullToRefreshListView;
 import invonate.cn.ecommerce.YGApplication;
 import invonate.cn.ecommerce.httpUtil.HttpUtil;
@@ -207,21 +209,36 @@ public class OrderFragment extends Fragment {
         for (Order.Rows order : list_select) {
             list_ordernum.add(order.getOrdernum());
         }
+        Request_cDeliver request = new Request_cDeliver(app.getUser().getAccountnum(), list_ordernum);
 
         SubscriberOnNextListener onNextListener = new SubscriberOnNextListener<OrderSearch>() {
             @Override
             public void onNext(OrderSearch data) {
-                Log.i("create_order", data.toString());
+                Log.i("create_deliver", data.toString());
                 ArrayList<OrderSearch.Rows> list_order=data.getRows();
+                if (list_order.isEmpty()){
+                    AlertDialog dialog=new AlertDialog(getActivity()).builder();
+                    dialog.setTitle("改订单下已无可发货的商品")
+                            .setPositiveButton("确定", new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+
+                                }
+                            })
+                    .show();
+                    return;
+                }
                 Intent intent=new Intent(getActivity(), CreateDeliverActivity.class);
                 Bundle bundle=new Bundle();
                 bundle.putSerializable("list_order",list_order);
+                bundle.putSerializable("lrows",data.getLrows());
+                bundle.putSerializable("trows",data.getTrows());
+                bundle.putSerializable("wrows",data.getWrows());
                 intent.putExtras(bundle);
                 startActivity(intent);
             }
         };
-
-        Log.i("list_num", JSON.toJSONString(list_ordernum));
-        HttpUtil.getInstance().search_order(new ProgressSubscriber(onNextListener, getActivity(), "获取订单信息"), JSON.toJSONString(list_ordernum));
+        Log.i("list_num", JSON.toJSONString(request));
+        HttpUtil.getInstance().search_order(new ProgressSubscriber(onNextListener, getActivity(), "获取订单信息"), JSON.toJSONString(request));
     }
 }

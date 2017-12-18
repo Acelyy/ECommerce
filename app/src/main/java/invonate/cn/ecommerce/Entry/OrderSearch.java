@@ -3,6 +3,7 @@ package invonate.cn.ecommerce.Entry;
 import com.alibaba.fastjson.JSON;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 
 /**
@@ -18,6 +19,9 @@ public class OrderSearch {
 
     private int total;
     private ArrayList<Rows> rows;
+    private ArrayList<Trans> lrows;
+    private ArrayList<Trans> trows;
+    private ArrayList<Trans> wrows;
 
     public int getTotal() {
         return total;
@@ -35,7 +39,31 @@ public class OrderSearch {
         this.rows = rows;
     }
 
-    public static class Rows implements Serializable{
+    public ArrayList<Trans> getLrows() {
+        return lrows;
+    }
+
+    public void setLrows(ArrayList<Trans> lrows) {
+        this.lrows = lrows;
+    }
+
+    public ArrayList<Trans> getTrows() {
+        return trows;
+    }
+
+    public void setTrows(ArrayList<Trans> trows) {
+        this.trows = trows;
+    }
+
+    public ArrayList<Trans> getWrows() {
+        return wrows;
+    }
+
+    public void setWrows(ArrayList<Trans> wrows) {
+        this.wrows = wrows;
+    }
+
+    public static class Rows implements Serializable {
         /**
          * detailcomment :
          * detailnoticenum : 0.0
@@ -73,7 +101,7 @@ public class OrderSearch {
         private String khofficenum;
         private String length;
         private String material;
-        private double num;
+        private String num;
         private String office;
         private String officenum;
         private String orderdetailid;
@@ -81,20 +109,27 @@ public class OrderSearch {
         private String ordernum;
         private String period;
         private int plandeliqty;
-        private double price;
+        private String price;
         private String producttype;
         private String producttype2;
         private String producttype2code;
         private String producttypecode;
-        private double ptdetailnoticenum;
-        private double ptremainDetailnoticenum;
-        private double remainDetailnoticenum;
+        private String ptdetailnoticenum;
+        private String ptremainDetailnoticenum;
+        private String remainDetailnoticenum;
         private String shippingtype;
-        private double singleweight;
+        private String singleweight;
         private String spec;
         private String warehouse;
         private String warehousenum;
         private String yearmonth;
+
+        private String point; // 实际下单件数，初值为最大下单件数
+        private int maxPoint; // 最大下单件数
+        private String orderWgt; //下单重量
+
+
+
 
         public String getDetailcomment() {
             return detailcomment;
@@ -144,11 +179,11 @@ public class OrderSearch {
             this.material = material;
         }
 
-        public double getNum() {
+        public String getNum() {
             return num;
         }
 
-        public void setNum(double num) {
+        public void setNum(String num) {
             this.num = num;
         }
 
@@ -208,11 +243,11 @@ public class OrderSearch {
             this.plandeliqty = plandeliqty;
         }
 
-        public double getPrice() {
+        public String getPrice() {
             return price;
         }
 
-        public void setPrice(double price) {
+        public void setPrice(String price) {
             this.price = price;
         }
 
@@ -248,27 +283,27 @@ public class OrderSearch {
             this.producttypecode = producttypecode;
         }
 
-        public double getPtdetailnoticenum() {
+        public String getPtdetailnoticenum() {
             return ptdetailnoticenum;
         }
 
-        public void setPtdetailnoticenum(double ptdetailnoticenum) {
+        public void setPtdetailnoticenum(String ptdetailnoticenum) {
             this.ptdetailnoticenum = ptdetailnoticenum;
         }
 
-        public double getPtremainDetailnoticenum() {
+        public String getPtremainDetailnoticenum() {
             return ptremainDetailnoticenum;
         }
 
-        public void setPtremainDetailnoticenum(double ptremainDetailnoticenum) {
+        public void setPtremainDetailnoticenum(String ptremainDetailnoticenum) {
             this.ptremainDetailnoticenum = ptremainDetailnoticenum;
         }
 
-        public double getRemainDetailnoticenum() {
+        public String getRemainDetailnoticenum() {
             return remainDetailnoticenum;
         }
 
-        public void setRemainDetailnoticenum(double remainDetailnoticenum) {
+        public void setRemainDetailnoticenum(String remainDetailnoticenum) {
             this.remainDetailnoticenum = remainDetailnoticenum;
         }
 
@@ -280,11 +315,11 @@ public class OrderSearch {
             this.shippingtype = shippingtype;
         }
 
-        public double getSingleweight() {
+        public String getSingleweight() {
             return singleweight;
         }
 
-        public void setSingleweight(double singleweight) {
+        public void setSingleweight(String singleweight) {
             this.singleweight = singleweight;
         }
 
@@ -318,6 +353,105 @@ public class OrderSearch {
 
         public void setYearmonth(String yearmonth) {
             this.yearmonth = yearmonth;
+        }
+
+
+        public String getPoint() {
+            return point;
+        }
+
+        public void setPoint(String point) {
+            this.point = point;
+        }
+
+        public int getMaxPoint() {
+            return maxPoint;
+        }
+
+        public void setMaxPoint() {
+            BigDecimal bd = new BigDecimal(getNum());
+            this.maxPoint = bd.divide(new BigDecimal(getSingleweight()), 0).intValue();
+            if (point == null) {
+                setPoint(this.maxPoint + "");
+            }
+
+        }
+
+        public String getOrderWgt() {
+            return orderWgt;
+        }
+
+        public void setOrderWgt(String orderWgt) {
+            this.orderWgt = orderWgt;
+        }
+
+
+
+    }
+
+    public static class Trans implements Serializable{
+        private String custno;
+        private String locationno;
+        private String recname;
+        private String recorderno;
+        private String recshortname;
+        private String transportway;
+        private String transportwayno;
+
+        public String getCustno() {
+            return custno;
+        }
+
+        public void setCustno(String custno) {
+            this.custno = custno;
+        }
+
+        public String getLocationno() {
+            return locationno;
+        }
+
+        public void setLocationno(String locationno) {
+            this.locationno = locationno;
+        }
+
+        public String getRecname() {
+            return recname;
+        }
+
+        public void setRecname(String recname) {
+            this.recname = recname;
+        }
+
+        public String getRecorderno() {
+            return recorderno;
+        }
+
+        public void setRecorderno(String recorderno) {
+            this.recorderno = recorderno;
+        }
+
+        public String getRecshortname() {
+            return recshortname;
+        }
+
+        public void setRecshortname(String recshortname) {
+            this.recshortname = recshortname;
+        }
+
+        public String getTransportway() {
+            return transportway;
+        }
+
+        public void setTransportway(String transportway) {
+            this.transportway = transportway;
+        }
+
+        public String getTransportwayno() {
+            return transportwayno;
+        }
+
+        public void setTransportwayno(String transportwayno) {
+            this.transportwayno = transportwayno;
         }
     }
 

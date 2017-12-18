@@ -1,14 +1,14 @@
 package invonate.cn.ecommerce.Entry;
 
 /**
- * Created by liyangyang on 2017/11/29.
+ * Created by liyangyang on 2017/12/13.
  */
 
-public class Deliver_way {
-    private String id;
-    private String name;
+public class Deliver_fee {
+    String id;
+    String name;
 
-    public Deliver_way(String id, String name) {
+    public Deliver_fee(String id, String name) {
         this.id = id;
         this.name = name;
     }
@@ -31,6 +31,6 @@ public class Deliver_way {
 
     @Override
     public String toString() {
-        return this.name;
+        return name;
     }
 }

@@ -109,13 +109,13 @@ public class CreateOrderActivity extends BaseActivity {
                 adapter.getData().remove(position);
                 adapter.notifyDataSetChanged();
                 sum(false);
-                if (adapter.getData().isEmpty()){
+                if (adapter.getData().isEmpty()) {
                     finish();
                 }
             }
         });
         listGoods.setAdapter(adapter);
-        sum(true);
+
         customername.setText(app.getUser().getCustomernamecn());
         office.setText(app.getUser().getOffice());
         bOffice.setText(g_office);
@@ -124,6 +124,12 @@ public class CreateOrderActivity extends BaseActivity {
         initPicker();
         createPicker();
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        sum(true);
     }
 
     @OnClick({R.id.img_back, R.id.btn_complete, R.id.btn_cancel})
@@ -153,6 +159,7 @@ public class CreateOrderActivity extends BaseActivity {
             @Override
             public void onOptionsSelect(int options1, int option2, int options3, View v) {
                 adapter.getData().get(index).setPoint(list_num.get(options1) + "");
+                adapter.getData().get(index).setOrderWgt(multiply(adapter.getData().get(index).getPoint(), adapter.getData().get(index).getSingleweight()) + "");
                 adapter.notifyDataSetChanged();
                 sum(false);
             }
@@ -210,7 +217,7 @@ public class CreateOrderActivity extends BaseActivity {
                                 adapter.getData().remove(index);
                                 adapter.notifyDataSetChanged();
                                 sum(false);
-                                if (adapter.getData().isEmpty()){
+                                if (adapter.getData().isEmpty()) {
                                     finish();
                                 }
                             }
@@ -233,12 +240,17 @@ public class CreateOrderActivity extends BaseActivity {
      */
     private void sum(boolean first) {
         double d_sum = 0;
-
-        for (Distribution.Rows entry : adapter.getData()) {
-            if (first) {
-                d_sum = add(d_sum, (multiply(entry.getPrice(), entry.getTotalWgt())).doubleValue());
-            } else {
-                d_sum = add(d_sum, (multiply(entry.getPrice(), entry.getOrderWgt())).doubleValue());
+        if (first) {
+            for (int i = 0; i < adapter.getData().size(); i++) {
+                if (adapter.getItemViewType(i) == ShoppingAdapter.TYPE1) { // 螺纹钢
+                    d_sum = add(d_sum, multiply(multiply(adapter.getData().get(i).getSingleweight(), div(adapter.getData().get(i).getSumMax(), adapter.getData().get(i).getSingleweight(), 0) + "")+"",adapter.getData().get(i).getPrice()));
+                } else {
+                    d_sum = add(d_sum, multiply(adapter.getData().get(i).getPrice(), min(adapter.getData().get(i).getTotalWgt(), adapter.getData().get(i).getNum()) + ""));
+                }
+            }
+        } else {
+            for (Distribution.Rows entry : adapter.getData()) {
+                d_sum = add(d_sum, (multiply(entry.getPrice(), entry.getOrderWgt())));
             }
         }
         gsum.setText(String.format("%s", d_sum));
@@ -252,10 +264,12 @@ public class CreateOrderActivity extends BaseActivity {
      * @param data2
      * @return
      */
-    private BigDecimal multiply(String data1, String data2) {
+    private double multiply(String data1, String data2) {
         BigDecimal bd1 = new BigDecimal(data1);
         BigDecimal bd2 = new BigDecimal(data2);
-        return bd1.multiply(bd2).setScale(2, BigDecimal.ROUND_DOWN);
+        double result = bd1.multiply(bd2).setScale(3, BigDecimal.ROUND_DOWN).doubleValue();
+        Log.i("multiply", bd1 + "X" + bd2 + "=" + result);
+        return result;
     }
 
     /**
@@ -274,10 +288,39 @@ public class CreateOrderActivity extends BaseActivity {
     }
 
     /**
+     * 相减
+     *
+     * @param v1
+     * @param v2
+     * @return
+     */
+    public double min(String v1, String v2) {
+        BigDecimal b1 = new BigDecimal(v1);
+        BigDecimal b2 = new BigDecimal(v2);
+        double result = b1.subtract(b2).setScale(2, BigDecimal.ROUND_DOWN).doubleValue();
+        Log.i("min", v1 + "-" + v2 + "=" + result);
+        return result;
+    }
+
+    /**
+     * 相除
+     *
+     * @param data1
+     * @param data2
+     * @param scale
+     * @return
+     */
+    private int div(String data1, String data2, int scale) {
+        BigDecimal bd1 = new BigDecimal(data1);
+        BigDecimal bd2 = new BigDecimal(data2);
+        return bd1.divide(bd2, 0).setScale(scale, BigDecimal.ROUND_DOWN).intValue();
+    }
+
+    /**
      * 下单
      */
     private void create_order() {
-        if (adapter.getData().isEmpty()){
+        if (adapter.getData().isEmpty()) {
             Toast.makeText(app, "请至少选择一样钢材", Toast.LENGTH_SHORT).show();
             return;
         }

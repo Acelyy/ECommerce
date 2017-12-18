@@ -14,6 +14,7 @@ import invonate.cn.ecommerce.Entry.Order;
 import invonate.cn.ecommerce.Entry.OrderDetail;
 import invonate.cn.ecommerce.Entry.OrderSearch;
 import invonate.cn.ecommerce.Entry.User;
+import invonate.cn.ecommerce.Entry.Version;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
@@ -32,8 +33,9 @@ public class HttpUtil {
 
     //public static final String BASE_URL = "http://esale.yong-gang.com/";
     //private static final String BASE_URL = "http://192.168.202.180:8000/";
-    private static final String BASE_URL = "http://172.20.1.17:8000/";
+    //public static final String BASE_URL = "http://172.20.1.17:8000";
     //private static final String BASE_URL = "http://192.168.2.1/";
+    public static final String BASE_URL = "http://test.yong-gang.cn";
 
     private HttpService httpService;
 
@@ -218,10 +220,44 @@ public class HttpUtil {
      * @param subscriber
      * @param request_args
      */
-    public void search_order(Subscriber subscriber,String request_args){
+    public void search_order(Subscriber subscriber, String request_args) {
         Observable observable = httpService.search_order(request_args)
                 .map(new HttpResultFunc<OrderSearch>());
-        toSubscribe(observable,subscriber);
+        toSubscribe(observable, subscriber);
     }
 
+    /**
+     * 新增发货通知单
+     *
+     * @param subscriber
+     * @param request_args
+     */
+    public void create_deliver(Subscriber subscriber, String request_args) {
+        Observable observable = httpService.create_deliver(request_args)
+                .map(new HttpResultFunc<String>());
+        toSubscribe(observable, subscriber);
+    }
+
+    /**
+     * 修改发货通知单
+     *
+     * @param subscriber
+     * @param request_args
+     */
+    public void edit_deliver(Subscriber subscriber, String request_args) {
+        Observable observable = httpService.edit_deliver(request_args)
+                .map(new HttpResultFunc<String>());
+        toSubscribe(observable, subscriber);
+    }
+
+    /**
+     * 获取版本号
+     *
+     * @param subscriber
+     */
+    public void getVersion(Subscriber subscriber) {
+        Observable observable = httpService.getVersion()
+                .map(new HttpResultFunc<Version>());
+        toSubscribe(observable, subscriber);
+    }
 }

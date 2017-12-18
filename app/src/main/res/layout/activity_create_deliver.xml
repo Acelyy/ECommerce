@@ -224,7 +224,6 @@
                                 android:padding="10px"
                                 android:paddingStart="10px"
                                 android:singleLine="true"
-                                android:text="永联代运，代收代付运费"
                                 android:textColor="#5290d4"
                                 android:textSize="40px" />
 
@@ -269,7 +268,6 @@
                                     android:padding="10px"
                                     android:paddingStart="10px"
                                     android:singleLine="true"
-                                    android:text="汽运"
                                     android:textColor="#5290d4"
                                     android:textSize="40px" />
 
@@ -299,11 +297,14 @@
                                     android:textColor="#000000"
                                     android:textSize="40px" />
 
-                                <TextView
+                                <EditText
                                     android:id="@+id/car_num"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="苏E123456"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="80px"
+                                    android:layout_marginEnd="40px"
+                                    android:layout_marginStart="20px"
+                                    android:background="@drawable/button_forget_pass"
+                                    android:padding="10px"
                                     android:textColor="#5290d4"
                                     android:textSize="40px" />
 
@@ -312,6 +313,7 @@
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/layout_water"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="10px"
@@ -332,11 +334,13 @@
                                     android:textColor="#000000"
                                     android:textSize="40px" />
 
-                                <TextView
+                                <Button
                                     android:id="@+id/deliver_wharf"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="66666"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="80px"
+                                    android:layout_marginEnd="40px"
+                                    android:background="@drawable/button_forget_pass"
+                                    android:padding="10px"
                                     android:textColor="#5290d4"
                                     android:textSize="40px" />
 
@@ -346,6 +350,7 @@
 
 
                         <LinearLayout
+                            android:id="@+id/layout_place"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="10px"
@@ -366,11 +371,13 @@
                                     android:textColor="#000000"
                                     android:textSize="40px" />
 
-                                <TextView
+                                <Button
                                     android:id="@+id/deliver_place"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="66666"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="80px"
+                                    android:layout_marginEnd="40px"
+                                    android:background="@drawable/button_forget_pass"
+                                    android:padding="10px"
                                     android:textColor="#5290d4"
                                     android:textSize="40px" />
 
@@ -403,11 +410,14 @@
                                 android:textColor="#000000"
                                 android:textSize="40px" />
 
-                            <TextView
+                            <EditText
                                 android:id="@+id/contact"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="66666"
+                                android:layout_width="match_parent"
+                                android:layout_height="80px"
+                                android:layout_marginEnd="20px"
+                                android:layout_marginStart="35px"
+                                android:background="@drawable/button_forget_pass"
+                                android:padding="10px"
                                 android:textColor="#5290d4"
                                 android:textSize="40px" />
 
@@ -427,11 +437,13 @@
                                 android:textColor="#000000"
                                 android:textSize="40px" />
 
-                            <TextView
+                            <EditText
                                 android:id="@+id/phone"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="18626359305"
+                                android:layout_width="match_parent"
+                                android:layout_height="80px"
+                                android:layout_marginEnd="40px"
+                                android:background="@drawable/button_forget_pass"
+                                android:padding="10px"
                                 android:textColor="#5290d4"
                                 android:textSize="40px" />
 
@@ -445,7 +457,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10px"
                         android:layout_marginTop="10px"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:visibility="gone">
 
 
                         <LinearLayout
@@ -461,11 +474,17 @@
                                 android:textColor="#000000"
                                 android:textSize="40px" />
 
-                            <TextView
+                            <Button
                                 android:id="@+id/province"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="66666"
+                                android:layout_width="match_parent"
+                                android:layout_height="80px"
+                                android:layout_marginEnd="20px"
+                                android:layout_marginStart="20px"
+                                android:background="@drawable/button_forget_pass"
+                                android:gravity="start"
+                                android:padding="10px"
+                                android:paddingStart="10px"
+                                android:singleLine="true"
                                 android:textColor="#5290d4"
                                 android:textSize="40px" />
 
@@ -485,11 +504,17 @@
                                 android:textColor="#000000"
                                 android:textSize="40px" />
 
-                            <TextView
+                            <Button
                                 android:id="@+id/city"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="18626359305"
+                                android:layout_width="match_parent"
+                                android:layout_height="80px"
+                                android:layout_marginEnd="40px"
+                                android:layout_marginStart="20px"
+                                android:background="@drawable/button_forget_pass"
+                                android:gravity="start"
+                                android:padding="10px"
+                                android:paddingStart="10px"
+                                android:singleLine="true"
                                 android:textColor="#5290d4"
                                 android:textSize="40px" />
 
@@ -502,7 +527,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10px"
                         android:layout_marginTop="10px"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:visibility="gone">
 
 
                         <LinearLayout
@@ -514,15 +540,20 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="销售/区域："
+                                android:text="销售/区："
                                 android:textColor="#000000"
                                 android:textSize="40px" />
 
-                            <TextView
+                            <Button
                                 android:id="@+id/area"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="66666"
+                                android:layout_width="300px"
+                                android:layout_height="80px"
+                                android:layout_marginStart="20px"
+                                android:background="@drawable/button_forget_pass"
+                                android:gravity="start"
+                                android:padding="10px"
+                                android:paddingStart="10px"
+                                android:singleLine="true"
                                 android:textColor="#5290d4"
                                 android:textSize="40px" />
 
@@ -579,6 +610,113 @@
 
             </LinearLayout>
 
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30px"
+                android:background="#FFFFFF"
+                android:padding="20px"
+                android:text="发货通知单汇总"
+                android:textColor="#000000"
+                android:textSize="40px" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="3px"
+                    android:layout_marginStart="20px"
+                    android:background="#e8e7eb" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10px"
+                android:background="#FFFFFF"
+                android:orientation="horizontal"
+                android:padding="20px">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="总重量(吨)："
+                        android:textColor="#000000"
+                        android:textSize="40px" />
+
+                    <TextView
+                        android:id="@+id/gsum"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#5290d4"
+                        android:textSize="40px" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="总金额(元)："
+                        android:textColor="#000000"
+                        android:textSize="40px" />
+
+                    <TextView
+                        android:id="@+id/sum"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#5290d4"
+                        android:textSize="40px" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20px"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_complete"
+                    android:layout_width="match_parent"
+                    android:layout_height="150px"
+                    android:layout_marginEnd="10px"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_register_login"
+                    android:text="保存"
+                    android:textColor="#FFFFFF"
+                    android:textSize="50px" />
+
+
+                <Button
+                    android:id="@+id/btn_cancel"
+                    android:layout_width="match_parent"
+                    android:layout_height="150px"
+                    android:layout_marginStart="10px"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_forget_pass"
+                    android:text="取消"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="50px" />
+
+            </LinearLayout>
 
         </LinearLayout>
 

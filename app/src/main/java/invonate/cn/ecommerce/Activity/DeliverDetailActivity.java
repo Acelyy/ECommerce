@@ -5,11 +5,15 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
+import com.yonggang.liyangyang.ios_dialog.widget.AlertDialog;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -19,7 +23,11 @@ import invonate.cn.ecommerce.BaseActivity;
 import invonate.cn.ecommerce.Entry.DeliverDetail;
 import invonate.cn.ecommerce.R;
 import invonate.cn.ecommerce.Request.Request_DeliverDetail;
+import invonate.cn.ecommerce.Request.Request_eDeliver;
+import invonate.cn.ecommerce.YGApplication;
 import invonate.cn.ecommerce.httpUtil.HttpUtil;
+import invonate.cn.ecommerce.httpUtil.ProgressSubscriber;
+import invonate.cn.ecommerce.httpUtil.SubscriberOnNextListener;
 import rx.Subscriber;
 
 public class DeliverDetailActivity extends BaseActivity {
@@ -54,14 +62,20 @@ public class DeliverDetailActivity extends BaseActivity {
     TextView orderPhonenum;
     @BindView(R.id.layout_deliver)
     LinearLayout layoutDeliver;
+
     private String noticeid;
+    private String noticeno;
+
+    private YGApplication app;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_deliver_detail);
         ButterKnife.bind(this);
+        app = (YGApplication) getApplication();
         noticeid = getIntent().getExtras().getString("id");
+        noticeno = getIntent().getExtras().getString("no");
         getDeliverDetail(noticeid);
         refresh.setColorSchemeResources(android.R.color.holo_blue_bright,
                 android.R.color.holo_green_light, android.R.color.holo_orange_light);
@@ -104,11 +118,6 @@ public class DeliverDetailActivity extends BaseActivity {
         HttpUtil.getInstance().getDeliverDetail(subscriber, JSON.toJSONString(request));
     }
 
-    @OnClick(R.id.img_back)
-    public void onViewClicked() {
-        finish();
-    }
-
     /**
      * 设置信息
      *
@@ -131,5 +140,64 @@ public class DeliverDetailActivity extends BaseActivity {
         orderTransway.setText(notice.getTransway());
         layoutDeliver.setVisibility(View.VISIBLE);
     }
+
+    @OnClick({R.id.img_back, R.id.edit})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.img_back:
+                finish();
+                break;
+            case R.id.edit:
+                View item = LayoutInflater.from(this).inflate(R.layout.item_input2,null);
+                final EditText car=item.findViewById(R.id.car_num);
+                final EditText contact=item.findViewById(R.id.contact);
+                final EditText tel=item.findViewById(R.id.tel);
+                AlertDialog dialog=new AlertDialog(this).builder();
+                dialog.setTitle("请输入修改的信息")
+                .setView(item).setPositiveButton("确定", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        edit_deliver(car.getText().toString().trim(),contact.getText().toString().trim(),tel.getText().toString().trim());
+                    }
+                }).setNegativeButton("取消",null)
+                .show();
+                break;
+        }
+    }
+
+    /**
+     *
+     */
+    private void edit_deliver(String car_num, String name, String tel) {
+        if ("".equals(car_num)){
+            Toast.makeText(app, "车船号不能为空", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if ("".equals(name)){
+            Toast.makeText(app, "联系人不能为空", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if ("".equals(tel)){
+            Toast.makeText(app, "联系电话不能为空", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        Request_eDeliver request = new Request_eDeliver();
+        request.setCarnum(car_num);
+        request.setContacts(name);
+        request.setPhonenum(tel);
+        request.setModifer(app.getUser().getContacts());
+        request.setNoticeid(noticeid);
+        request.setNoticeno(noticeno);
+        request.setComment("");
+        SubscriberOnNextListener onNextListener = new SubscriberOnNextListener<String>() {
+            @Override
+            public void onNext(String data) {
+                getDeliverDetail(noticeid);
+                Toast.makeText(DeliverDetailActivity.this, "修改成功", Toast.LENGTH_SHORT).show();
+            }
+        };
+        HttpUtil.getInstance().edit_deliver(new ProgressSubscriber(onNextListener,this,"修改中"),JSON.toJSONString(request));
+    }
+
 
 }

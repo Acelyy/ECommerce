@@ -76,6 +76,7 @@ public class PublishFragment extends Fragment {
                 Intent intent = new Intent(getActivity(), DeliverDetailActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putString("id", list_deliver.get(position - 1).getNoticeid());
+                bundle.putString("no", list_deliver.get(position - 1).getNoticeno());
                 intent.putExtras(bundle);
                 startActivity(intent);
             }
